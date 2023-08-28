@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorapp
+  labels:
+    app: colorapp
+  namespace: colorapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: colorapp
+  template:
+    metadata:
+      labels:
+        app: colorapp
+    spec:
+      containers:
+        - name: colorapp
+          image: aksappsmodeacrwe1.azurecr.io/colorapp:latest
+          ports:
+            - containerPort: 3000
